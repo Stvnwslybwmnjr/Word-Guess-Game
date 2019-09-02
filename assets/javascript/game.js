@@ -8,7 +8,7 @@ console.log(word)
 
 //Blank Letter Generator===============
 var answerArray = [];
-for (var i = 0; i < word.length; i++) {
+for (let i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 }
 console.log(answerArray)
@@ -17,6 +17,7 @@ console.log(answerArray)
 var remainingLetters = word.length;
 console.log(remainingLetters)
 //======================generating alphabet array============
+
 function genCharArray(charA, charZ) {
     var a = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
     for (; i <= j; ++i) {
@@ -28,11 +29,15 @@ var alphabet = genCharArray('a', 'z'); // ["a", ..., "z"]
 console.log(alphabet);
 
 
-
-document.getElementById("word").innerHTML = answerArray.join(" ");
-        // document.getElementById('hello').innerHTML = 'hi';
-
-
-
 //=================================GAME=============================
+
+document.onkeyup = function (event) {
+    let guess = event.key.toLowerCase();
+    
+    if (alphabet.indexOf(guess) >= 0) {
+        alert("it worked")
+    }
+
+    
+}
 
