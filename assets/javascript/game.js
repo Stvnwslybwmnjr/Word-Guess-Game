@@ -2,6 +2,7 @@
 let displayWins = document.getElementById("wins");
 let displayWord = document.getElementById("word");
 let displayGuesses = document.getElementById("guesses")
+let displayRemain = document.getElementById("remain")
 var words = ["zeppelin", "maiden",];
 
 //word selector======================
@@ -49,7 +50,8 @@ document.onkeyup = function (event) {
         }
         else {
             guessed.push(guess2);
-            console.log(guessed)
+            console.log(guessed);
+            displayGuesses.innerText = guessed;
             
         }
     }
