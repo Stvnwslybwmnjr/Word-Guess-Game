@@ -16,7 +16,7 @@ console.log(word);
 // guesses and wins============
 let turns = word.length + 6;
 console.log("turns left" + turns);
-
+displayRemain.innerText = turns;
 //Blank Letter Generator===============
 var answerArray = [];
 for (let i = 0; i < word.length; i++) {
