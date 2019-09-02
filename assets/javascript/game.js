@@ -15,7 +15,7 @@ console.log(word);
 
 // guesses and wins============
 let turns = word.length + 6;
-console.log("turns left" + turns)
+console.log("turns left" + turns);
 
 //Blank Letter Generator===============
 var answerArray = [];
@@ -47,21 +47,23 @@ let guessed = [];
 document.onkeyup = function (event) {
     let guess = event.key.toLowerCase();
     let guess2 = guess;
-
+    
     // if the guess is in the alphabet
     if (alphabet.indexOf(guess) !== -1) {
         // alert("it worked")
-
+        
         if (guessed.indexOf(guess2) !== -1) {
             alert(guessed + " already used.")
-
+            
         }
         else {
+            // alert("still working")
             guessed.push(guess2);
             console.log(guessed);
             displayGuesses.innerText = guessed;
-            
+            turns--;
         }
+        displayRemain.innerText = turns;
     }
 }
 
