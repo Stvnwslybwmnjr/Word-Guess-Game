@@ -1,13 +1,21 @@
-//word list array============
+// Id selectors======================
 let displayWins = document.getElementById("wins");
 let displayWord = document.getElementById("word");
 let displayGuesses = document.getElementById("guesses")
 let displayRemain = document.getElementById("remain")
-var words = ["zeppelin", "maiden",];
+
+
+//word list array============
+let words = ["zeppelin", "maiden",];
+
 
 //word selector======================
 var word = words[Math.floor(Math.random() * words.length)];
 console.log(word);
+
+// guesses and wins============
+let turns = word.length + 6;
+console.log("turns left" + turns)
 
 //Blank Letter Generator===============
 var answerArray = [];
