@@ -67,10 +67,7 @@ document.onkeyup = function (event) {
         }
         displayRemain.innerText = turns;
 
-        if (remainingLetters < 1){
-            alert("you win")
-        }
-        else if (turns > 0) {
+        if (turns > 0) {
             // alert("this works")
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === guess2) {
@@ -79,9 +76,17 @@ document.onkeyup = function (event) {
                     console.log("RL " + remainingLetters);
                     //remaining letters
                     displayWord.innerHTML = answerArray.join(" ");
+                    if (remainingLetters < 1) {
+                        alert("YOU WIN!")
+                        // Can't WIN ON THE LAST TURN!!!
+                    }
                 }
             }
         }
+        // else if (remainingLetters < 1) {
+        //     alert("YOU WIN!")
+        // }
+
         else {
             alert("Out of guesses, Game Over! The word was " + word);
         }
