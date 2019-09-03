@@ -26,7 +26,6 @@ function reset() {
 
     // guesses and wins============
     turns = word.length + 6;
-//    turns = 3;
     console.log("turns left" + turns);
     displayRemain.innerText = turns;
     
@@ -63,20 +62,20 @@ console.log(alphabet);
 
 document.onkeyup = function (event) {
     let guess = event.key.toLowerCase();
-    let guess2 = guess;
+   
 
     // if the guess is in the alphabet
     if (alphabet.indexOf(guess) !== -1) {
 
         // alert("it worked")
 
-        if (guessed.indexOf(guess2) !== -1) {
+        if (guessed.indexOf(guess) !== -1) {
             alert(guessed + " already used.")
 
         }
         else {
             // alert("still working")
-            guessed.push(guess2);
+            guessed.push(guess);
             console.log(guessed);
             displayGuesses.innerText = guessed;
             turns--;
@@ -87,8 +86,8 @@ document.onkeyup = function (event) {
             // if (turns > 0) {
             // alert("this works")
             for (let i = 0; i < word.length; i++) {
-                if (word[i] === guess2) {
-                    answerArray[i] = guess2;
+                if (word[i] === guess) {
+                    answerArray[i] = guess;
                     remainingLetters--;
                     console.log("RL " + remainingLetters);
                     //remaining letters
