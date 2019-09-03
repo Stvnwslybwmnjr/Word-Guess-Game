@@ -4,31 +4,48 @@ let displayWord = document.getElementById("word");
 let displayGuesses = document.getElementById("guesses")
 let displayRemain = document.getElementById("remain")
 
+// Global Variables========================
+let turns 
+let word
+let answerArray
+let remainingLetters
+let guessed = [];
+let wins = 0;
+let loses = 0;
 
 //word list array============
 let words = ["zeppelin", "maiden",];
 
+// Reset Game=================================
+reset();
 
-//word selector======================
-var word = words[Math.floor(Math.random() * words.length)];
-console.log(word);
+function reset() {
+    //word selector======================
+    word = words[Math.floor(Math.random() * words.length)];
+    console.log(word);
 
-// guesses and wins============
-let turns = word.length + 6;
-console.log("turns left" + turns);
-displayRemain.innerText = turns;
-//Blank Letter Generator===============
-var answerArray = [];
-for (let i = 0; i < word.length; i++) {
-    answerArray[i] = "_";
+    // guesses and wins============
+    turns = word.length + 6;
+//    turns = 3;
+    console.log("turns left" + turns);
+    displayRemain.innerText = turns;
+    
+    // Remaining letters==================
+    remainingLetters = word.length;
+    console.log("remaining Letters" + remainingLetters);
+    
+    guessed = [];
+    displayGuesses.innerText = guessed;
+    //Blank Letter Generator===============
+     answerArray = [];
+    for (let i = 0; i < word.length; i++) {
+        answerArray[i] = "_";
+    }
+    console.log(answerArray);
+    displayWord.innerHTML = answerArray.join(" ");
 }
-console.log(answerArray);
-displayWord.innerHTML = answerArray.join(" ");
 
-// Remaining letters==================
-var remainingLetters = word.length;
-console.log("remaining Letters" + remainingLetters);
-//======================generating alphabet array============
+//======================generating alphabet array============this came from "stack overflow"
 
 function genCharArray(charA, charZ) {
     var a = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
@@ -42,7 +59,6 @@ console.log(alphabet);
 
 
 //=================================GAME=============================
-let guessed = [];
 
 
 document.onkeyup = function (event) {
@@ -64,10 +80,11 @@ document.onkeyup = function (event) {
             console.log(guessed);
             displayGuesses.innerText = guessed;
             turns--;
+            winOrLose();
         }
         displayRemain.innerText = turns;
-
-        if (turns > 0) {
+        function winOrLose() {
+            // if (turns > 0) {
             // alert("this works")
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === guess2) {
@@ -77,18 +94,21 @@ document.onkeyup = function (event) {
                     //remaining letters
                     displayWord.innerHTML = answerArray.join(" ");
                     if (remainingLetters < 1) {
-                        alert("YOU WIN!")
+                        alert("YOU WIN! the word was " + word);
+                        wins++;
+                        console.log(wins)
+                        reset();
                         // Can't WIN ON THE LAST TURN!!!
                     }
                 }
+            }           
+            if (turns == 0) {
+                alert("Out of guesses, Game Over! The word was " + word);
+                loses++;
+                console.log(loses);
+                reset();
             }
-        }
-        // else if (remainingLetters < 1) {
-        //     alert("YOU WIN!")
-        // }
-
-        else {
-            alert("Out of guesses, Game Over! The word was " + word);
         }
     }
 }
+//time out functions
