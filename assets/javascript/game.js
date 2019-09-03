@@ -23,10 +23,11 @@ for (let i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 }
 console.log(answerArray);
+displayWord.innerHTML = answerArray.join(" ");
 
 // Remaining letters==================
 var remainingLetters = word.length;
-console.log(remainingLetters);
+console.log("remaining Letters" + remainingLetters);
 //======================generating alphabet array============
 
 function genCharArray(charA, charZ) {
@@ -47,14 +48,14 @@ let guessed = [];
 document.onkeyup = function (event) {
     let guess = event.key.toLowerCase();
     let guess2 = guess;
-    
+
     // if the guess is in the alphabet
     if (alphabet.indexOf(guess) !== -1) {
         // alert("it worked")
-        
+
         if (guessed.indexOf(guess2) !== -1) {
             alert(guessed + " already used.")
-            
+
         }
         else {
             // alert("still working")
@@ -64,6 +65,20 @@ document.onkeyup = function (event) {
             turns--;
         }
         displayRemain.innerText = turns;
+
+        if (turns > 0) {
+            // alert("this works")
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] === guess2) {
+                    answerArray[i] = guess2;
+                    remainingLetters--;
+                    console.log("RL " + remainingLetters);
+                    displayWord.innerHTML = answerArray.join(" ");
+                }
+            }
+        }
+        else {
+            alert("Out of guesses, Game Over! The word was " + word);
+        }
     }
 }
-
