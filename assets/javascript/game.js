@@ -51,6 +51,7 @@ document.onkeyup = function (event) {
 
     // if the guess is in the alphabet
     if (alphabet.indexOf(guess) !== -1) {
+
         // alert("it worked")
 
         if (guessed.indexOf(guess2) !== -1) {
@@ -66,13 +67,17 @@ document.onkeyup = function (event) {
         }
         displayRemain.innerText = turns;
 
-        if (turns > 0) {
+        if (remainingLetters < 1){
+            alert("you win")
+        }
+        else if (turns > 0) {
             // alert("this works")
             for (let i = 0; i < word.length; i++) {
                 if (word[i] === guess2) {
                     answerArray[i] = guess2;
                     remainingLetters--;
                     console.log("RL " + remainingLetters);
+                    //remaining letters
                     displayWord.innerHTML = answerArray.join(" ");
                 }
             }
