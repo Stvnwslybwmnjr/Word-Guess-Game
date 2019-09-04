@@ -1,11 +1,15 @@
 // Id selectors======================
 let displayWins = document.getElementById("wins");
 let displayWord = document.getElementById("word");
-let displayGuesses = document.getElementById("guesses")
-let displayRemain = document.getElementById("remain")
+let displayGuesses = document.getElementById("guesses");
+let displayRemain = document.getElementById("remain");
+let displayPicture = document.getElementById("picture");
+let displayPix = document.getElementById("pix")
+let displayVid = document.getElementById("vid")
+let playMaiden = new Audio('./assets/audio/hallowed.m4a')
 
 // Global Variables========================
-let turns 
+let turns
 let word
 let answerArray
 let remainingLetters
@@ -28,20 +32,22 @@ function reset() {
     turns = word.length + 6;
     console.log("turns left" + turns);
     displayRemain.innerText = turns;
-    
+
     // Remaining letters==================
     remainingLetters = word.length;
     console.log("remaining Letters" + remainingLetters);
-    
+
     guessed = [];
     displayGuesses.innerText = guessed;
     //Blank Letter Generator===============
-     answerArray = [];
+    answerArray = [];
     for (let i = 0; i < word.length; i++) {
         answerArray[i] = "_";
     }
     console.log(answerArray);
     displayWord.innerHTML = answerArray.join(" ");
+    playMaiden.pause();
+    displayPix.setAttribute("src", "")
 }
 
 //======================generating alphabet array============this came from "stack overflow"
@@ -62,7 +68,7 @@ console.log(alphabet);
 
 document.onkeyup = function (event) {
     let guess = event.key.toLowerCase();
-   
+
 
     // if the guess is in the alphabet
     if (alphabet.indexOf(guess) !== -1) {
@@ -96,16 +102,25 @@ document.onkeyup = function (event) {
                         alert("YOU WIN! the word was " + word);
                         wins++;
                         console.log(wins)
-                        reset();
+                        if (word === "maiden") {
+                            displayPix.setAttribute("src", "./assets/images/hqdefault.jpg")
+                            playMaiden.play();
+                        } else {
+                            displayPix.setAttribute("src", "./assets/images/ledz3.jpg")
+                        }
+                        displayWins.innerHTML = wins;
+
+
+                        // reset();
                         // Can't WIN ON THE LAST TURN!!!
                     }
                 }
-            }           
+            }
             if (turns == 0) {
                 alert("Out of guesses, Game Over! The word was " + word);
                 loses++;
                 console.log(loses);
-                reset();
+                // reset();
             }
         }
     }
