@@ -101,7 +101,7 @@ document.onkeyup = function (event) {
                     //remaining letters
                     displayWord.innerHTML = answerArray.join(" ");
                     if (remainingLetters < 1) {
-                        alert("YOU WIN! the word was " + word);
+                        alert("YOU WIN!");
                         wins++;
                         console.log(wins)
                         if (word === "maiden") {
@@ -121,9 +121,7 @@ document.onkeyup = function (event) {
             }
             if (turns == 0) {
                 alert("Out of guesses, Game Over! The word was " + word);
-                loses++;
-                console.log(loses);
-                // reset();
+                            // reset();
             }
         }
     }
