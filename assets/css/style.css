@@ -29,3 +29,6 @@ p {
   font-size: 25px;
   padding: 10px 20px;
 }
+#pix {
+    max-width: 100%;
+}
