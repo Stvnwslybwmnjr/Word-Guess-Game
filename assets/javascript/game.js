@@ -7,6 +7,7 @@ let displayPicture = document.getElementById("picture");
 let displayPix = document.getElementById("pix")
 let displayVid = document.getElementById("vid")
 let playMaiden = new Audio('./assets/audio/hallowed.m4a')
+let playZeppelin = new Audio('./assets/audio/gallowspole.mp3')
 
 // Global Variables========================
 let turns
@@ -47,6 +48,7 @@ function reset() {
     console.log(answerArray);
     displayWord.innerHTML = answerArray.join(" ");
     playMaiden.pause();
+    playZeppelin.pause();
     displayPix.setAttribute("src", "")
 }
 
@@ -107,6 +109,7 @@ document.onkeyup = function (event) {
                             playMaiden.play();
                         } else {
                             displayPix.setAttribute("src", "./assets/images/ledz3.jpg")
+                            playZeppelin.play();
                         }
                         displayWins.innerHTML = wins;
 

@@ -9,29 +9,31 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Hangman</title>
+    <link href="https://fonts.googleapis.com/css?family=New+Rocker&display=swap" rel="stylesheet">
+    <title>Gallows Pole Guessing Game</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="logo text-center mt-4 mb-4">Gallows Pole Guessing Game</div>
+    <div class="container text-center">
         <div class="row">
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-6 col-sm-12 gamezone pt-3 pb-4 mt-4 mb-4">
 
                 <div id="picture">
-                    <img id="pix">
+                    <img id="pix" class="mt-4">
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-6 col-sm-12 gamezone pt-3 pb-4 mt-4 mb-4">
                 <div id="vid"></div>
                 <h1>Games Won:</h1>
-                <p id="wins"></P>
+                <p id="wins">0</P>
                     <h1>Guess this word!</h1>
                     <p id="word"></p>
                     <h1>Remaining Guesses</h1>
                     <p id="remain"></p>
                     <h1>Your Guesses</h1>
-                    <p id="guesses"></p>
-                    <button onclick="reset()">reset</button>
+                    <p id="guesses">0</p>
+                    <button onclick="reset()" class="btn">reset</button>
 
             </div>
         </div>

@@ -1,4 +1,31 @@
 body {
 	background-image: url("../images/curls.png");
-    color: #e60505
+    color: #ff971a;
+    font-family: 'New Rocker', cursive;
+}
+
+.gamezone {
+    background: #2800477c;
+    border: 5px dotted #ff971a;
+    line-height: 3em;
+    height: 500px;
+    }
+
+.logo {
+    font-size: 75px; 
+}
+
+h1 {
+    font-size: 35px;
+}
+p {
+    font-size: 25px;
+} 
+
+.btn {
+    border: 0;
+  background-color: #ff971a;
+  color: #ffffff;
+  font-size: 25px;
+  padding: 10px 20px;
 }
