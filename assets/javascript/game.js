@@ -52,7 +52,8 @@ function reset() {
     displayPix.setAttribute("src", "")
 }
 
-//======================generating alphabet array============this came from "stack overflow"
+// === Alphabet Generator ==== source below========================
+//=== https://stackoverflow.com/questions/24597634/how-to-generate-an-array-of-alphabet-in-jquery=======
 
 function genCharArray(charA, charZ) {
     var a = [], i = charA.charCodeAt(0), j = charZ.charCodeAt(0);
