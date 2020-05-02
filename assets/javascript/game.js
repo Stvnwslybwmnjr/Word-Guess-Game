@@ -122,7 +122,7 @@ document.onkeyup = function (event) {
             }
             if (turns == 0) {
                 alert("Out of guesses, Game Over! The word was " + word);
-                            // reset();
+                            reset();
             }
         }
     }
